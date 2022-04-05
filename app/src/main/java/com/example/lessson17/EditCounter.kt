@@ -26,7 +26,7 @@ class EditCounter : AppCompatActivity() {
         try {
             counterValue = editCounter.text.toString().toInt()
         } catch (ex: NumberFormatException) {
-            editError.text = ERROR_MSG
+            editError.text = getString(ERROR_MSG_STRING_ID)
             return
         }
 
@@ -36,6 +36,6 @@ class EditCounter : AppCompatActivity() {
     }
 
     companion object {
-        const val ERROR_MSG = "Incorrect number format"
+        const val ERROR_MSG_STRING_ID = R.string.incorrect_number_format_msg
     }
 }

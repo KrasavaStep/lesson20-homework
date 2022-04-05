@@ -84,9 +84,9 @@ class CounterActivity : AppCompatActivity() {
 
     fun setBg(view: View) {
         bgColor = when ((view as Button).text) {
-            "1" -> R.color.bg_light_blue
-            "2" -> R.color.bg_light_green
-            "3" -> R.color.bg_light_pink
+            getString(R.string.btn_bg_color_1) -> R.color.bg_light_blue
+            getString(R.string.btn_bg_color_2) -> R.color.bg_light_green
+            getString(R.string.btn_bg_color_3) -> R.color.bg_light_pink
             else -> R.color.bg_orange
         }
 
@@ -95,9 +95,9 @@ class CounterActivity : AppCompatActivity() {
 
     fun setTextColor(view: View) {
         textColor = when ((view as Button).text) {
-            "r" -> R.color.text_red
-            "b" -> R.color.text_blue
-            "g" -> R.color.text_green
+            getString(R.string.btn_txt_color_red) -> R.color.text_red
+            getString(R.string.btn_txt_color_blue) -> R.color.text_blue
+            getString(R.string.btn_txt_color_green) -> R.color.text_green
             else -> R.color.text_magenta
         }
 
@@ -106,9 +106,9 @@ class CounterActivity : AppCompatActivity() {
 
     fun setCounter(view: View) {
         when ((view as Button).text) {
-            "+" -> updateCounter(counter + 1)
-            "-" -> updateCounter(counter - 1)
-            "0" -> updateCounter(0)
+            getString(R.string.btn_plus) -> updateCounter(counter + 1)
+            getString(R.string.btn_minus) -> updateCounter(counter - 1)
+            getString(R.string.btn_zero) -> updateCounter(0)
             else -> {
                 updateCounter((MIN_RND_VALUE..MAX_RND_VALUE).random())
             }

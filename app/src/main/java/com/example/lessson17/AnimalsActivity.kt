@@ -23,7 +23,7 @@ class AnimalsActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(IMG_RES_KEY, currentImgRes)
-        Log.d("ImgActivity", "$currentImgRes - ${R.drawable.cat}")
+        Log.d(TAG, "$currentImgRes - ${R.drawable.cat}")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ class AnimalsActivity : AppCompatActivity() {
             imgRes = (imagesMap.values - currentImgRes).random()
         }
         updateRotation(ROTATION_START_VALUE)
-        currentImgRes = imgRes!!
+        currentImgRes = requireNotNull(imgRes) { "Incorrect value ($btnText) in imagesMap ($imagesMap) " }
         imgView.setImageResource(imgRes)
 
     }
@@ -73,5 +73,6 @@ class AnimalsActivity : AppCompatActivity() {
         const val ROTATION_INCREASE_VALUE = 90F
         const val ROTATION_START_VALUE = 0F
         const val IMG_RES_KEY = "IMAGE"
+        const val TAG = "AnimalsActivity";
     }
 }

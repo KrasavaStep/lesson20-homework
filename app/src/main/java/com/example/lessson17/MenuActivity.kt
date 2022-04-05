@@ -15,7 +15,6 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun btnClick(view: View) {
-
         when ((view as Button).text) {
             getString(R.string.btn_animals) -> {
                 val animalsIntent = Intent(this, AnimalsActivity::class.java)

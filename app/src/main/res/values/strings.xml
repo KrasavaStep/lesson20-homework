@@ -22,8 +22,20 @@
     <string name="btn_toast">Toast</string>
     <string name="btn_device">Device</string>
     <string name="btn_time">Time</string>
+    <string name="btn_bg_color_1">1</string>
+    <string name="btn_bg_color_2">2</string>
+    <string name="btn_bg_color_3">3</string>
+    <string name="btn_bg_color_4">4</string>
+    <string name="btn_txt_color_red">r</string>
+    <string name="btn_txt_color_green">g</string>
+    <string name="btn_txt_color_blue">b</string>
+    <string name="btn_txt_color_magenta">m</string>
+    <string name="btn_plus">+</string>
+    <string name="btn_minus">-</string>
+    <string name="btn_zero">0</string>
 
     <string name="incorrect_number_format_msg">Incorrect number format. Try again</string>
     <string name="incorrect_txt_color_format_msg">Incorrect color format. Try again</string>
     <string name="incorrect_bg_format_msg">Incorrect background format. Try again</string>
+    <string name="error_string_default">there will be mistakes</string>
 </resources>

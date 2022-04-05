@@ -17,7 +17,7 @@ class CreateCounterActivity : AppCompatActivity() {
     private lateinit var editBgColorValue: EditText
     private lateinit var errorView: TextView
 
-    private var errorString: String = "Тут будут ошибки"
+    private var errorString: String = getString(R.string.error_string_default)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +69,7 @@ class CreateCounterActivity : AppCompatActivity() {
                 intent.putExtra(COUNTER_VALUE_KEY, counterDigit)
                 intent.putExtra(TEXT_COLOR_VALUE_KEY, textColor)
                 intent.putExtra(BG_COLOR_VALUE_KEY, bgColor)
-                errorView.text = "Тут будут ошибки"
+                errorView.text = getString(R.string.error_string_default)
                 zeroFields()
                 startActivity(intent)
             }
@@ -86,7 +86,7 @@ class CreateCounterActivity : AppCompatActivity() {
         try {
             counterValue = editCounterValue.text.toString().toInt()
         } catch (ex: NumberFormatException) {
-            errorString += "${getString(INCORRECT_VALUE_FORMAT)}\n"
+            errorString += "${getString(INCORRECT_VALUE_FORMAT_STRING_ID)}\n"
             editCounterValue.setText("0")
         }
 
@@ -98,20 +98,12 @@ class CreateCounterActivity : AppCompatActivity() {
         val text = editTextColorValue.text.toString().lowercase()
 
         when (text) {
-            "r" -> {
-                textColorValue = R.color.text_red
-            }
-            "g" -> {
-                textColorValue = R.color.text_green
-            }
-            "b" -> {
-                textColorValue = R.color.text_blue
-            }
-            "m" -> {
-                textColorValue = R.color.text_magenta
-            }
+            getString(BTN_TXT_COLOR_RED_STRING_ID) -> textColorValue = R.color.text_red
+            getString(BTN_TXT_COLOR_GREEN_STRING_ID) -> textColorValue = R.color.text_green
+            getString(BTN_TXT_COLOR_BLUE_STRING_ID) -> textColorValue = R.color.text_blue
+            getString(BTN_TXT_COLOR_MAGENTA_STRING_ID) -> textColorValue = R.color.text_magenta
             else -> {
-                errorString += "${getString(INCORRECT_TXT_COLOR)}\n"
+                errorString += "${getString(INCORRECT_TXT_COLOR_STRING_ID)}\n"
                 editTextColorValue.setText("r")
             }
         }
@@ -124,21 +116,13 @@ class CreateCounterActivity : AppCompatActivity() {
         val text = editBgColorValue.text.toString().lowercase()
 
         when (text) {
-            "1" -> {
-                bgColorValue = R.color.bg_light_blue
-            }
-            "2" -> {
-                bgColorValue = R.color.bg_light_green
-            }
-            "3" -> {
-                bgColorValue = R.color.bg_light_pink
-            }
-            "4" -> {
-                bgColorValue = R.color.bg_orange
-            }
+            getString(BTN_BG_COLOR1_STRING_ID) ->  bgColorValue = R.color.bg_light_blue
+            getString(BTN_BG_COLOR2_STRING_ID) -> bgColorValue = R.color.bg_light_green
+            getString(BTN_BG_COLOR3_STRING_ID) -> bgColorValue = R.color.bg_light_pink
+            getString(BTN_BG_COLOR4_STRING_ID) -> bgColorValue = R.color.bg_orange
             else -> {
-                errorString += "${getString(INCORRECT_BG_COLOR)}\n"
-                editTextColorValue.setText("r")
+                errorString += "${getString(INCORRECT_BG_COLOR_STRING_ID)}\n"
+                editBgColorValue.setText("1")
             }
         }
 
@@ -149,7 +133,7 @@ class CreateCounterActivity : AppCompatActivity() {
         editCounterValue.setText("0")
         editTextColorValue.setText("r")
         editBgColorValue.setText("1")
-        errorString = ""
+        errorString = getString(R.string.error_string_default)
     }
 
     companion object {
@@ -158,8 +142,19 @@ class CreateCounterActivity : AppCompatActivity() {
         const val BG_COLOR_VALUE_KEY = "BG_COLOR_VALUE"
         const val ERROR_MSG_KEY = "ERROR_MSG_KEY"
 
-        const val INCORRECT_VALUE_FORMAT = R.string.incorrect_number_format_msg
-        const val INCORRECT_TXT_COLOR = R.string.incorrect_txt_color_format_msg
-        const val INCORRECT_BG_COLOR = R.string.incorrect_bg_format_msg
+        const val INCORRECT_VALUE_FORMAT_STRING_ID = R.string.incorrect_number_format_msg
+        const val INCORRECT_TXT_COLOR_STRING_ID = R.string.incorrect_txt_color_format_msg
+        const val INCORRECT_BG_COLOR_STRING_ID = R.string.incorrect_bg_format_msg
+
+        const val BTN_BG_COLOR1_STRING_ID = R.string.btn_bg_color_1
+        const val BTN_BG_COLOR2_STRING_ID = R.string.btn_bg_color_2
+        const val BTN_BG_COLOR3_STRING_ID = R.string.btn_bg_color_3
+        const val BTN_BG_COLOR4_STRING_ID = R.string.btn_bg_color_4
+
+        const val BTN_TXT_COLOR_RED_STRING_ID = R.string.btn_txt_color_red
+        const val BTN_TXT_COLOR_GREEN_STRING_ID = R.string.btn_txt_color_green
+        const val BTN_TXT_COLOR_BLUE_STRING_ID = R.string.btn_txt_color_blue
+        const val BTN_TXT_COLOR_MAGENTA_STRING_ID = R.string.btn_txt_color_magenta
+
     }
 }
